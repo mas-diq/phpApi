@@ -1,4 +1,7 @@
 <?php
+
+$_GET['function']();
+
 function sendPushNotification($fcm_token, $title, $message, $id = null,$action = null) {  
      
     $url = "https://fcm.googleapis.com/fcm/send";            
@@ -31,4 +34,12 @@ function sendPushNotification($fcm_token, $title, $message, $id = null,$action =
     curl_close($ch);
  
     return $result;
+}
+
+function sendNotif(){
+    $title = $_POST['title'] ?: "null";
+    $body = $_POST['body'] ?: "null";
+
+    sendPushNotification("cb2k55LS9TY:APA91bFtomNWND0AtKXutrJ1rxeDRNkrSGRwhbMc6_IPSezCI_vzX4F5Mcb5PF25YeujZ6BC_obJLK4jZCpK6knMxQxGl8jJ2FKlOEqrAIbEUJk3pHgf_Z0JkFwmlzJE_-YSvSMeoptx",$title,$body,123456,"notif");
+
 }
